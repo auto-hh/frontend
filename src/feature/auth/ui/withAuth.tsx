@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { cookies } from "@/shared/lib";
+import { useAuthStore } from "@/entities/auth";
 
 type ComponentType = React.ComponentType<any>;
 
@@ -10,16 +10,19 @@ export function withAuth(
     redirectTo: string,
 ) {
     return function AuthWrapper(props: any) {
+        const auth = useAuthStore((state) => state.isAuth);
+        const { checkAuth } = useAuthStore((state) => state.actions);
         const navigate = useNavigate();
 
         useEffect(() => {
-            const authCookie = cookies.get("auth");
-            const isAuthenticated = authCookie === "true";
+            checkAuth();
+        }, [auth, checkAuth]);
 
-            if (isAuthenticated !== isAuth) {
+        useEffect(() => {
+            if (isAuth !== auth) {
                 navigate(redirectTo, { replace: true });
             }
-        }, [navigate, redirectTo, isAuth]);
+        }, [navigate, redirectTo, auth, isAuth]);
 
         return <Component {...props} />;
     };

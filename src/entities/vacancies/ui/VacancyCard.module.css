@@ -1,0 +1,91 @@
+.card {
+    background: #ffffff;
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    flex: 1 1 200px;
+}
+
+.company {
+    font-size: 14px;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.salary {
+    font-size: 14px;
+    font-weight: 500;
+    color: #059669;
+    background: #ecfdf5;
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.description {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.location {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.coverLetter {
+    background: #f9fafb;
+    border-left: 3px solid #3b82f6;
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+}
+
+.coverLetter h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+}
+
+.coverLetter p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin: 0 0 8px 0;
+}
+
+.coverLetter small {
+    font-size: 12px;
+    color: #9ca3af;
+}
