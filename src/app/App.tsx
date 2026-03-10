@@ -1,3 +1,10 @@
-export function App() {
-    return <div>auto-hh</div>;
-}
+import { AppProviders } from "./routers/AppProviders";
+import { AppRouter } from "./routers/AppRouter";
+
+export const App = () => {
+    return (
+        <AppProviders>
+            <AppRouter />
+        </AppProviders>
+    );
+};
