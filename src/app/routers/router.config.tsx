@@ -1,19 +1,24 @@
 import type { RouteObject } from "react-router-dom";
 import { Home } from "@/pages/Home";
-import { Login } from "@/pages/Login";
 import { AppRoutes } from "@/shared/config";
-import { withAuth } from "@/feature/auth";
-
-const ProtectedHome = withAuth(Home, true, AppRoutes.LOGIN);
-const PublicLogin = withAuth(Login, false, AppRoutes.HOME);
+import { ProtectedRoute, PublicRoute } from "@/feature/auth";
+import { Login } from "@/pages/Login";
 
 export const routerConfig: RouteObject[] = [
     {
         path: AppRoutes.HOME,
-        element: <ProtectedHome />,
+        element: (
+            <ProtectedRoute>
+                <Home />
+            </ProtectedRoute>
+        ),
     },
     {
         path: AppRoutes.LOGIN,
-        element: <PublicLogin />,
+        element: (
+            <PublicRoute>
+                <Login />
+            </PublicRoute>
+        ),
     },
 ];
