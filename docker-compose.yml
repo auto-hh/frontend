@@ -1,6 +1,5 @@
-version: "3.8"
 services:
-    web:
+    frontend:
         build: .
         ports:
             - "80:80"
