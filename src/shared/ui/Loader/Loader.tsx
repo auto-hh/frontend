@@ -1,8 +1,9 @@
 import { Connections } from "./Connections";
-import { getNeuronPositions, Neurons } from "./Neurons";
+import { Neurons } from "./Neurons";
 import s from "./Loader.module.css";
 import type { Position } from "./types";
 import { Defs } from "./Defs";
+import { getNeuronPositions } from "./getNeuronPositions";
 
 export function Loader() {
     const layers = [8, 5, 4, 3];
