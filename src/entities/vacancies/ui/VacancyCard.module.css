@@ -89,3 +89,36 @@
     font-size: 12px;
     color: #9ca3af;
 }
+
+.coverLetterHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyButton {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copyButton:hover {
+    background: #e0e0e0;
+}
+
+.copyButton:disabled {
+    background: #4caf50;
+    color: white;
+    border-color: #4caf50;
+    cursor: default;
+}
