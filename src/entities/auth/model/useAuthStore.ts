@@ -36,7 +36,6 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 
         checkAuth: () => {
             const hasCookie = cookies.get(config.AUTH_COOKIE_NAME) === "true";
-            console.log(hasCookie);
             const { isAuth } = get();
 
             if (hasCookie !== isAuth) {

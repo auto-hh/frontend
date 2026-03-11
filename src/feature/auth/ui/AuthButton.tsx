@@ -7,7 +7,6 @@ export function AuthButton() {
 
     const onClick = async () => {
         await login();
-        console.log("logined");
         checkAuth();
     };
 
