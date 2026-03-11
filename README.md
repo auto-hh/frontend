@@ -15,8 +15,6 @@
 docker compose up -d --build
 ```
 
----
-
 ## 📁 Структура проекта
 
 ```
