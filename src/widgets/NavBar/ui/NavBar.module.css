@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    align-items: center;
+
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+
+    background-color: rgb(185, 122, 132);
+    z-index: 10;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.logout {
+    margin-left: auto;
+
+    width: 2rem;
+    height: 2rem;
+}

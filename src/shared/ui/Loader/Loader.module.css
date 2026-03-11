@@ -1,0 +1,105 @@
+.container {
+    --neural-bg: #1a051a;
+    --neural-node-bg: #2d0b2b;
+    --neural-primary: #ff00ff;
+    --neural-secondary: #ff69b4;
+    --neural-accent: #ff1493;
+    --neural-glow: #ff00ff;
+}
+
+.svg {
+    min-width: 35vw;
+    min-height: 25vh;
+    overflow: hidden;
+}
+
+.connections {
+    opacity: 0.4;
+}
+
+.connection {
+    stroke: var(--neural-primary);
+    stroke-width: 1;
+    fill: none;
+    stroke-dasharray: 5, 5;
+    animation: flow 2s linear infinite;
+    filter: url(#neuralGlow);
+}
+
+/* Стрелочки */
+.arrow {
+    fill: var(--neural-primary);
+}
+
+/* Слои */
+.layer {
+    animation: layerPulse 3s ease-in-out infinite;
+}
+
+/* Кольцо вокруг нейрона */
+.neuronRing {
+    fill: none;
+    stroke: var(--neural-secondary);
+    stroke-width: 1.5;
+    opacity: 0.3;
+    animation: ringPulse 2s ease-in-out infinite;
+    filter: url(#neuralGlow);
+}
+
+/* Нейрон */
+.neuron {
+    fill: var(--neural-node-bg);
+    stroke: var(--neural-accent);
+    stroke-width: 3;
+    filter: url(#neuralGlow);
+    animation: neuronPulse 2s ease-in-out infinite;
+}
+
+/* Анимации */
+@keyframes flow {
+    0% {
+        stroke-dashoffset: 10;
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0.3;
+    }
+}
+
+@keyframes neuronPulse {
+    0%,
+    100% {
+        fill: var(--neural-node-bg);
+        stroke: var(--neural-accent);
+    }
+    50% {
+        fill: var(--neural-secondary);
+        stroke: #ffffff;
+    }
+}
+
+@keyframes ringPulse {
+    0%,
+    100% {
+        r: 10;
+        opacity: 0.3;
+    }
+    50% {
+        r: 12;
+        opacity: 0.6;
+    }
+}
+
+@keyframes layerPulse {
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
