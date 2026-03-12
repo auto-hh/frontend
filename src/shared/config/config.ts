@@ -1,4 +1,4 @@
 export const config = {
     AUTH_COOKIE_NAME: "auth",
-    URL: "http://locahost",
+    URL: "http://localhost",
 };
