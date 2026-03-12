@@ -1,5 +1,7 @@
-import { cookies } from "@/shared/lib";
+import { config } from "@/shared/config";
 
 export async function login() {
-    cookies.set("auth", "true");
+    if (typeof window !== undefined) {
+        window.location.href = `${config.URL}/oauth/begin`;
+    }
 }
