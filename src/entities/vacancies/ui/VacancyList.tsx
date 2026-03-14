@@ -7,13 +7,13 @@ interface VacancyListProps {
 }
 
 export const VacancyList = ({ vacancies }: VacancyListProps) => {
-    return vacancies.length ? (
-        <div className={s.container}>
-            {vacancies.map((vacancy) => (
-                <VacancyCard key={vacancy.id} vacancy={vacancy} />
-            ))}
-        </div>
-    ) : (
-        <p className={s.empty}>Вакансии не найдены</p>
+    return (
+        !!vacancies.length && (
+            <div className={s.container}>
+                {vacancies.map((vacancy) => (
+                    <VacancyCard key={vacancy.id} vacancy={vacancy} />
+                ))}
+            </div>
+        )
     );
 };
