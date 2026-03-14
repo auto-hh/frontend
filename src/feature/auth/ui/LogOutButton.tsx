@@ -14,6 +14,8 @@ export function LogOutButton({ className }: LogOutButtonProps) {
     };
 
     return (
-        <LogOut className={`${s.logout} ${className}`} onClick={handleLogout} />
+        <div className={` ${className}`}>
+            <LogOut className={s.logout} onClick={handleLogout} />
+        </div>
     );
 }
