@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchVacancies } from "../api/vacancies";
+import { fetchVacancies } from "../api/fetchVacancies";
 import { useResumeSelection } from "@/entities/resumeList";
 
 export function useVacancies() {

@@ -1,5 +1,5 @@
-import { Loader, ReloadPageButton } from "@/shared/ui";
 import s from "./Home.module.css";
+import { Loader, ReloadPageButton } from "@/shared/ui";
 import { useVacancies, VacancyList } from "@/entities/vacancies";
 import { commonStyles } from "@/shared/styles";
 

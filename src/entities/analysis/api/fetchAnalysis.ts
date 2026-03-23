@@ -7,7 +7,7 @@ export const fetchAnalysis = async (
     id: string | null,
 ): Promise<ExplorationResult> => {
     // TODO: Заменить на реальный API запрос
-    console.log("fetchAnalysis");
-    await delay(1);
+    console.log(`fetchAnalysis ${id}`);
+    await delay(3000);
     return mockExplorationResult;
 };

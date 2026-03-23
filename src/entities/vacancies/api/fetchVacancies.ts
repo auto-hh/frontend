@@ -53,6 +53,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchVacancies = async (id: string | null): Promise<Vacancy[]> => {
     // TODO: Заменить на реальный API запрос
+    console.log(`fetchVacancies: ${id}`);
     await delay(3000);
     return mockVacancies;
 };
