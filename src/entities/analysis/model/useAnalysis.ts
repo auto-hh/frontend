@@ -1,26 +1,21 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { fetchAnalysis } from "../api/fetchAnalysis";
-import { useResumeSelection } from "@/entities/resumeList";
 
 export function useAnalysis() {
-    const id = useResumeSelection((state) => state.id);
-
     const {
         data: analysis,
-        isLoading,
+        isPending,
         error,
-        refetch,
-    } = useQuery({
-        queryKey: ["analysis"],
-        queryFn: () => fetchAnalysis(id),
-        enabled: false,
-        staleTime: 5 * 60 * 1000,
+        mutate,
+    } = useMutation({
+        mutationKey: ["analysis"],
+        mutationFn: (form) => fetchAnalysis(form),
     });
 
     return {
         analysis,
-        isLoading,
+        isPending,
         error,
-        getAnalysis: refetch,
+        getAnalysis: mutate,
     };
 }

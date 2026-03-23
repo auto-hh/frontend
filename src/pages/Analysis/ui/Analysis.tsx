@@ -1,21 +1,25 @@
-import { SelectResume } from "@/feature/selectResume";
 import s from "./Analysis.module.css";
 import { commonStyles } from "@/shared/styles";
-import { AnalysisResume } from "@/widgets/AnalysisResume";
-import { useAnalysis } from "@/entities/analysis";
-import { ReloadPageButton } from "@/shared/ui";
+import { AnalysisItem, useAnalysis } from "@/entities/analysis";
+import { Loader, ReloadPageButton } from "@/shared/ui";
+import { ResumeForm } from "@/feature/ResumeForm";
 
 export function Analysis() {
-    const { analysis, isLoading } = useAnalysis();
+    const { analysis, isPending, getAnalysis } = useAnalysis();
 
     return (
         <div className={s.container}>
             <h1 className={commonStyles.title}>Analysis</h1>
+            {isPending ? (
+                <Loader />
+            ) : (
+                <>
+                    {!!analysis && <ReloadPageButton />}
+                    {!!analysis || <ResumeForm onSubmit={getAnalysis} />}
 
-            {!!analysis && !isLoading && <ReloadPageButton />}
-            {!!analysis || isLoading || <SelectResume />}
-
-            <AnalysisResume />
+                    <AnalysisItem tokens={analysis?.tokens ?? []} />
+                </>
+            )}
         </div>
     );
 }

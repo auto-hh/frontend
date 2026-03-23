@@ -8,5 +8,4 @@ export interface ExplorationResult {
     resume_id: number;
     tokens: Token[];
     status: string;
-    processing_time_ms: number;
 }

@@ -1,12 +1,13 @@
-import type { CoverLetter } from "./CoverLetter";
-
 export interface Vacancy {
-    id: string;
-    title: string;
+    vacancy_id: number;
+    target_role: string;
+    job_title: string;
+    experience: string;
+    grade: "junior" | "middle" | "senior" | "lead" | string;
+    skills_vac: string;
+    vacancy_text: string;
+    salary: string;
+    score: number;
+    cover_letter: string;
     company: string;
-    salary?: string;
-    description: string;
-    coverLetter: CoverLetter;
-    location?: string;
-    postedAt: string;
 }

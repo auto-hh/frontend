@@ -7,11 +7,13 @@ interface VacancyListProps {
 }
 
 export const VacancyList = ({ vacancies }: VacancyListProps) => {
+    console.log(`vacancies: ${vacancies}`);
+
     return (
         !!vacancies.length && (
             <div className={s.container}>
                 {vacancies.map((vacancy) => (
-                    <VacancyCard key={vacancy.id} vacancy={vacancy} />
+                    <VacancyCard key={vacancy.vacancy_id} vacancy={vacancy} />
                 ))}
             </div>
         )

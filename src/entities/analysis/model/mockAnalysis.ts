@@ -50,5 +50,4 @@ export const mockExplorationResult: ExplorationResult = {
     resume_id: 99999,
     tokens: mockAnalysis,
     status: "success",
-    processing_time_ms: 2340.5,
 };

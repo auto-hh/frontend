@@ -2,25 +2,25 @@ import { api } from "@/shared/api";
 import type { ExplorationResult } from "../model/ExplorationResult";
 import { mockExplorationResult } from "../model/mockAnalysis";
 
-export const fetchAnalysis = async (
-    id: string | null,
-): Promise<ExplorationResult> => {
-    // TODO: Заменить на реальный API запрос
-    console.log(`fetchAnalysis ${id}`);
+export const fetchAnalysis = async (form: any): Promise<ExplorationResult> => {
+    console.log(form);
 
-    console.log("fetchAnalysis:");
+    console.log(`fetchAnalysis`);
     try {
-        const response = await api.post("/analyze", { id });
-        console.log(response);
+        const { data } = await api.post("/analyze", {
+            ...form,
+            resume_id: "123",
+        });
+        return {
+            tokens: data.tokens,
+            status: data.status,
+            resume_id: data.resume_id,
+        };
     } catch (err) {
         console.log(err);
     } finally {
         console.log("end fetchAnalysis");
     }
-
-    const response = await api.post("/analyze", { id });
-
-    console.log(response);
 
     return mockExplorationResult;
 };

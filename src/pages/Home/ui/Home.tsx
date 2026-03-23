@@ -1,30 +1,23 @@
 import s from "./Home.module.css";
 import { Loader, ReloadPageButton } from "@/shared/ui";
-import { useVacancies, VacancyList } from "@/entities/vacancies";
+import { useGetVacancies, VacancyList } from "@/entities/vacancies";
 import { commonStyles } from "@/shared/styles";
-import { SelectResume } from "@/feature/selectResume";
+import { ResumeForm } from "@/feature/ResumeForm";
 
 export function Home() {
-    const { vacancies, isLoading, getVacancies } = useVacancies();
-
-    const onClick = () => {
-        getVacancies();
-    };
+    const { vacancies, isPending, getVacancies } = useGetVacancies();
 
     return (
         <div className={s.container}>
             <h1 className={commonStyles.title}>Home</h1>
 
-            {!!vacancies.length && !isLoading && <ReloadPageButton />}
-            {!!vacancies.length || isLoading || <SelectResume />}
+            {!!vacancies?.length && !isPending && <ReloadPageButton />}
 
-            {isLoading ? <Loader /> : <VacancyList vacancies={vacancies} />}
-
-            {!!vacancies.length || isLoading || (
-                <button onClick={onClick} className={commonStyles.button}>
-                    Сгенерировать
-                </button>
+            {!!vacancies?.length || isPending || (
+                <ResumeForm onSubmit={getVacancies} />
             )}
+
+            {isPending ? <Loader /> : <VacancyList vacancies={vacancies} />}
         </div>
     );
 }
