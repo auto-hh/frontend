@@ -1,7 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchVacancies } from "../api/vacancies";
+import { useResumeSelection } from "@/entities/resumeList";
 
 export function useVacancies() {
+    const id = useResumeSelection((state) => state.id);
+
     const {
         data: vacancies = [],
         isLoading,
@@ -9,7 +12,7 @@ export function useVacancies() {
         refetch,
     } = useQuery({
         queryKey: ["vacancies"],
-        queryFn: fetchVacancies,
+        queryFn: () => fetchVacancies(id),
         enabled: false,
         staleTime: 5 * 60 * 1000,
     });

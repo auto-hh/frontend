@@ -1,4 +1,4 @@
-import { Loader } from "@/shared/ui";
+import { Loader, ReloadPageButton } from "@/shared/ui";
 import s from "./Home.module.css";
 import { useVacancies, VacancyList } from "@/entities/vacancies";
 import { commonStyles } from "@/shared/styles";
@@ -14,6 +14,7 @@ export function Home() {
         <div className={s.container}>
             <h1 className={commonStyles.title}>Home</h1>
 
+            {!!vacancies.length && !isLoading && <ReloadPageButton />}
             {isLoading ? <Loader /> : <VacancyList vacancies={vacancies} />}
 
             {!!vacancies.length || isLoading || (

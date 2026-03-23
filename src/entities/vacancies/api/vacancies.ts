@@ -51,7 +51,7 @@ export const mockVacancies: Vacancy[] = [
 // Имитация задержки сети
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export const fetchVacancies = async (): Promise<Vacancy[]> => {
+export const fetchVacancies = async (id: string | null): Promise<Vacancy[]> => {
     // TODO: Заменить на реальный API запрос
     await delay(3000);
     return mockVacancies;

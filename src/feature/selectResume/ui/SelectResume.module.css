@@ -1,0 +1,15 @@
+.container {
+    border: solid 0.1rem black;
+    padding: 1rem 2rem;
+}
+
+.item {
+    cursor: pointer;
+    padding: 1rem;
+    border: solid 0.1rem black;
+    margin: 1rem auto;
+}
+
+.active {
+    background-color: #6738a8;
+}
