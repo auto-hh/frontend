@@ -1,3 +1,4 @@
+import { api } from "@/shared/api";
 import type { CoverLetter } from "../model/CoverLetter";
 import type { Vacancy } from "../model/Vacancy";
 
@@ -48,12 +49,19 @@ export const mockVacancies: Vacancy[] = [
     },
 ];
 
-// Имитация задержки сети
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 export const fetchVacancies = async (id: string | null): Promise<Vacancy[]> => {
     // TODO: Заменить на реальный API запрос
-    console.log(`fetchVacancies: ${id}`);
-    await delay(3000);
+
+    console.log("fetchVacancies:");
+    try {
+        const response = await api.post(`/resume`, { id });
+
+        console.log(response);
+    } catch (err) {
+        console.log(err);
+    } finally {
+        console.log("end fetchVacancies");
+    }
+
     return mockVacancies;
 };
