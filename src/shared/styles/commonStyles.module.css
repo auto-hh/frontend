@@ -1,12 +1,13 @@
 .button {
-    background-color: black;
-    border: 1px solid black;
-    color: white;
+    background-color: white;
+    border: 1px solid white;
+    color: black;
     padding: 1rem 0.5rem;
     border-radius: 1rem;
     margin: 1rem auto;
     cursor: pointer;
     min-width: 200px;
+    text-align: center;
 }
 
 .title {

@@ -11,8 +11,7 @@ export function useGetVacancies() {
         isPending,
     } = useMutation({
         mutationKey: ["mutate-vacancies"],
-        mutationFn: async (form: any) =>
-            fetchVacancies({ ...form, resume_id: 123 }),
+        mutationFn: async () => fetchVacancies(),
         onSuccess: (data) => {
             client.setQueryData(["vacancies"], data);
         },

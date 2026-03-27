@@ -12,8 +12,8 @@ export const VacancyList = ({ vacancies }: VacancyListProps) => {
     return (
         !!vacancies.length && (
             <div className={s.container}>
-                {vacancies.map((vacancy) => (
-                    <VacancyCard key={vacancy.vacancy_id} vacancy={vacancy} />
+                {vacancies.map((vacancy, idx) => (
+                    <VacancyCard key={`vacancy-${idx}`} vacancy={vacancy} />
                 ))}
             </div>
         )

@@ -1,4 +1,4 @@
-import { UpdateProfile } from "@/feature/ResumeForm";
+import { UpdateProfile } from "@/feature/UpdateProfile";
 import s from "./Profile.module.css";
 
 export function Profile() {
