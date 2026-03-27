@@ -1,4 +1,4 @@
-import type { Vacancy } from "../model/Vacancy";
+import type { Vacancy } from "@/entities/vacancies";
 import { VacancyCard } from "./VacancyCard";
 import s from "./VacancyList.module.css";
 
@@ -12,8 +12,8 @@ export const VacancyList = ({ vacancies }: VacancyListProps) => {
     return (
         !!vacancies.length && (
             <div className={s.container}>
-                {vacancies.map((vacancy) => (
-                    <VacancyCard key={vacancy.vacancy_id} vacancy={vacancy} />
+                {vacancies.map((vacancy, idx) => (
+                    <VacancyCard key={`vacancy-${idx}`} {...vacancy} />
                 ))}
             </div>
         )

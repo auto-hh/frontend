@@ -1,23 +1,28 @@
 import s from "./Home.module.css";
-import { Loader, ReloadPageButton } from "@/shared/ui";
-import { useGetVacancies, VacancyList } from "@/entities/vacancies";
-import { commonStyles } from "@/shared/styles";
-import { ResumeForm } from "@/feature/ResumeForm";
+import { Loader } from "@/shared/ui";
+import { useGetVacancies } from "@/entities/vacancies";
+import { SearchVacancies } from "@/feature/SearchVacancies";
+import { VacancyList } from "@/widgets/Vacancy";
 
 export function Home() {
     const { vacancies, isPending, getVacancies } = useGetVacancies();
+    const onSearch = async () => getVacancies();
 
     return (
         <div className={s.container}>
-            <h1 className={commonStyles.title}>Home</h1>
-
-            {!!vacancies?.length && !isPending && <ReloadPageButton />}
-
-            {!!vacancies?.length || isPending || (
-                <ResumeForm onSubmit={getVacancies} />
+            {isPending ? (
+                <div className={s.loader}>
+                    <Loader />
+                </div>
+            ) : (
+                <>
+                    {!!vacancies.length ? (
+                        <VacancyList vacancies={vacancies} />
+                    ) : (
+                        <SearchVacancies onSearch={onSearch} />
+                    )}
+                </>
             )}
-
-            {isPending ? <Loader /> : <VacancyList vacancies={vacancies} />}
         </div>
     );
 }

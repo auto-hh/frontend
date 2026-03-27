@@ -5,6 +5,24 @@
     padding: 0;
 }
 
+:root {
+    --bg-main-img: url("../assets/main-bg.svg");
+    --bg-login-img: url("../assets/login-bg.svg");
+
+    --bg-color: #0f172a;
+}
+
 body {
+    color: white;
     font-family: "Inter", sans-serif;
+    background-color: var(--bg-color);
+    background-image: var(--bg-main-img);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body[data-page="login"] {
+    background-image: var(--bg-login-img);
 }

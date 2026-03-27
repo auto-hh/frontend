@@ -1,11 +1,10 @@
 import s from "./Analysis.module.css";
 import { commonStyles } from "@/shared/styles";
 import { AnalysisItem, useAnalysis } from "@/entities/analysis";
-import { Loader, ReloadPageButton } from "@/shared/ui";
-import { ResumeForm } from "@/feature/ResumeForm";
+import { Loader } from "@/shared/ui";
 
 export function Analysis() {
-    const { analysis, isPending, getAnalysis } = useAnalysis();
+    const { analysis, isPending } = useAnalysis();
 
     return (
         <div className={s.container}>
@@ -14,9 +13,6 @@ export function Analysis() {
                 <Loader />
             ) : (
                 <>
-                    {!!analysis && <ReloadPageButton />}
-                    {!!analysis || <ResumeForm onSubmit={getAnalysis} />}
-
                     <AnalysisItem tokens={analysis?.tokens ?? []} />
                 </>
             )}
