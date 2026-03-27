@@ -1,5 +1,5 @@
 import s from "./Login.module.css";
-import { AuthButton } from "@/feature/auth";
+import { AuthButton } from "@/features/auth";
 
 export function Login() {
     return (

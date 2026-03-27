@@ -5,7 +5,7 @@ import {
     CoverLetter,
     GenerateButton,
     useGenerateCoverLetter,
-} from "@/feature/GenerateLetter";
+} from "@/features/GenerateLetter";
 
 export function VacancyCard(vacancy: Vacancy) {
     const { job_title, link, salary, city, score, work_format } = vacancy;

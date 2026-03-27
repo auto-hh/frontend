@@ -1,4 +1,4 @@
-import { UpdateProfile } from "@/feature/UpdateProfile";
+import { UpdateProfile } from "@/features/UpdateProfile";
 import s from "./Profile.module.css";
 
 export function Profile() {
