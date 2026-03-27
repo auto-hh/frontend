@@ -1,12 +1,11 @@
-import { api } from "@/shared/api";
 import type { ExplorationResult } from "../model/ExplorationResult";
 import { mockExplorationResult } from "../model/mockAnalysis";
 import { delay } from "@/shared/lib";
 
-export const fetchAnalysis = async (form: any): Promise<ExplorationResult> => {
+export const fetchAnalysis = async (): Promise<ExplorationResult> => {
     console.log(`fetchAnalysis`);
 
-    // await delay(1000);
+    await delay(1000);
 
     return mockExplorationResult;
 
