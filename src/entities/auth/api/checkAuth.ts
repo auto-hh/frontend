@@ -2,7 +2,10 @@ import { api } from "@/shared/api";
 
 export async function checkAuth(): Promise<boolean> {
     try {
-        await api.get("/user/me");
+        const res = await api.get("/user/me");
+
+        console.log(res);
+        debugger;
         return true;
     } catch (err) {
         return false;
