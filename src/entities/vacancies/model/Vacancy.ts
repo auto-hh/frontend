@@ -4,4 +4,6 @@ export interface Vacancy {
     city: string;
     body: string;
     link: string;
+    work_format: string;
+    score: number;
 }

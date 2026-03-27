@@ -1,0 +1,73 @@
+.container {
+    min-width: 20rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+}
+
+.jobTitle {
+    background: linear-gradient(#fd7b91, #b7208a, #760485, #2b015b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linkWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.linkWrapper:hover .link {
+    opacity: 0.7;
+    transform: translate(2px, -2px);
+    transition: all 0.2s;
+}
+
+.link {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.block {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin: auto 1rem 0 auto;
+}
+
+.score {
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.letter {
+    background-color: black;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}

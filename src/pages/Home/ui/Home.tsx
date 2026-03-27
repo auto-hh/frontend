@@ -1,7 +1,8 @@
 import s from "./Home.module.css";
 import { Loader } from "@/shared/ui";
-import { useGetVacancies, VacancyList } from "@/entities/vacancies";
+import { useGetVacancies } from "@/entities/vacancies";
 import { SearchVacancies } from "@/feature/SearchVacancies";
+import { VacancyList } from "@/widgets/Vacancy";
 
 export function Home() {
     const { vacancies, isPending, getVacancies } = useGetVacancies();

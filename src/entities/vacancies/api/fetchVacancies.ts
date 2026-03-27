@@ -2,7 +2,7 @@ import type { Vacancy } from "../model/Vacancy";
 import { delay } from "@/shared/lib";
 
 export const fetchVacancies = async (): Promise<Vacancy[]> => {
-    await delay(1000);
+    await delay(2000);
 
     return [
         {
@@ -11,6 +11,8 @@ export const fetchVacancies = async (): Promise<Vacancy[]> => {
             city: "Москва",
             body: "Разработка веб-приложений на React и TypeScript. Опыт работы от 2 лет.",
             link: "https://hh.ru/vacancy/1",
+            work_format: "офис",
+            score: 1.0,
         },
         {
             job_title: "Backend Developer",
@@ -18,6 +20,8 @@ export const fetchVacancies = async (): Promise<Vacancy[]> => {
             city: "Санкт-Петербург",
             body: "Разработка микросервисов на Node.js и Python. Опыт работы от 3 лет.",
             link: "https://hh.ru/vacancy/2",
+            work_format: "офис",
+            score: 0.85,
         },
         {
             job_title: "Fullstack Developer",
@@ -25,6 +29,8 @@ export const fetchVacancies = async (): Promise<Vacancy[]> => {
             city: "Казань",
             body: "Разработка fullstack-приложений для стартапов. React + Node.js.",
             link: "https://hh.ru/vacancy/3",
+            work_format: "офис",
+            score: 1.0,
         },
         {
             job_title: "DevOps Engineer",
@@ -32,6 +38,8 @@ export const fetchVacancies = async (): Promise<Vacancy[]> => {
             city: "Москва",
             body: "Автоматизация инфраструктуры и CI/CD процессов. Kubernetes, Docker, AWS.",
             link: "https://hh.ru/vacancy/4",
+            work_format: "офис",
+            score: 0.6,
         },
         {
             job_title: "QA Engineer",
@@ -39,6 +47,8 @@ export const fetchVacancies = async (): Promise<Vacancy[]> => {
             city: "Новосибирск",
             body: "Тестирование веб и мобильных приложений. Playwright, Jest, Postman.",
             link: "https://hh.ru/vacancy/5",
+            work_format: "офис",
+            score: 1.0,
         },
     ];
 };
