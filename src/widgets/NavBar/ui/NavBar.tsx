@@ -7,7 +7,7 @@ export function NavBar() {
 
     return (
         <nav className={s.container}>
-            <h2 className={s.title}>Auto-hh</h2>
+            <h2 className={s.title}>AutoHH</h2>
 
             {isAuth && <Navigation />}
         </nav>

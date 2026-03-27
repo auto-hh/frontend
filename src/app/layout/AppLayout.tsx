@@ -15,5 +15,5 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
         return () => document.body.removeAttribute("data-page");
     }, [isLoginPage]);
 
-    return <main className="app-layout">{children}</main>;
+    return <main>{children}</main>;
 };
