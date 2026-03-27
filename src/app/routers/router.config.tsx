@@ -4,6 +4,7 @@ import { AppRoutes } from "@/shared/config";
 import { ProtectedRoute, PublicRoute } from "@/feature/auth";
 import { Login } from "@/pages/Login";
 import { Analysis } from "@/pages/Analysis";
+import { Profile } from "@/pages/Profile";
 
 export const routerConfig: RouteObject[] = [
     {
@@ -27,6 +28,14 @@ export const routerConfig: RouteObject[] = [
         element: (
             <ProtectedRoute>
                 <Analysis />
+            </ProtectedRoute>
+        ),
+    },
+    {
+        path: AppRoutes.PROFILE,
+        element: (
+            <ProtectedRoute>
+                <Profile />
             </ProtectedRoute>
         ),
     },

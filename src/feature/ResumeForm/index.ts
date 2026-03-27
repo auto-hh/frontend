@@ -1,1 +1,1 @@
-export { ResumeForm } from "./ui/ResumeForm";
+export { UpdateProfile } from "./ui/UpdateProfile";
