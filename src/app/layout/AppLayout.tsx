@@ -10,7 +10,6 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
     const isLoginPage = pathname === "/login";
 
     useEffect(() => {
-        console.log("change", isLoginPage);
         document.body.setAttribute("data-page", isLoginPage ? "login" : "main");
         return () => document.body.removeAttribute("data-page");
     }, [isLoginPage]);

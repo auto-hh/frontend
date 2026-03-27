@@ -1,6 +1,6 @@
 import s from "./NavBar.module.css";
 import { useAuthStore } from "@/entities/auth";
-import { Navigation } from "./navigation";
+import { Navigation } from "./Navigation";
 
 export function NavBar() {
     const isAuth = useAuthStore((state) => state.isAuth);
