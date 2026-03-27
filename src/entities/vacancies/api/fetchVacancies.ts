@@ -2,7 +2,7 @@ import type { Vacancy } from "../model/Vacancy";
 import { delay } from "@/shared/lib";
 
 export const fetchVacancies = async (): Promise<Vacancy[]> => {
-    await delay(2000);
+    // await delay(2000);
 
     return [
         {

@@ -1,9 +1,14 @@
 .container {
-    min-width: 20rem;
+    width: 21rem;
+
     border-radius: 1rem;
     padding: 1rem;
     background-color: white;
     color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .jobTitle {
@@ -64,10 +69,6 @@
     border-radius: 0.25rem;
 }
 
-.letter {
-    background-color: black;
-    color: white;
-    padding: 0.75rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
+.salary {
+    margin: 0.25rem 0 0;
 }

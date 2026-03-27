@@ -1,0 +1,7 @@
+.container {
+    background-color: black;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
