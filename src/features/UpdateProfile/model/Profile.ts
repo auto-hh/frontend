@@ -1,34 +1,22 @@
 import { z } from "zod";
 
 export const profileSchema = z.object({
-    job_title: z.string().min(2, "Укажите должность (мин. 2 символа)"),
-
-    grade: z.string().min(1, "Укажите грейд"),
-
-    experience: z
-        .string()
-        .min(1, "Укажите опыт работы")
-        .describe("Опыт работы (время)"),
-
-    work_format: z.string().min(2, "Укажите формат работы"),
-
-    salary: z
-        .string()
-        .min(1, "Укажите зарплату")
-        .describe("Ожидаемая зарплата"),
-
-    city: z.string().min(2, "Укажите город"),
-
-    about_me: z
-        .string()
-        .min(10, "Минимум 10 символов")
-        .optional()
-        .or(z.literal("")),
-
-    recent_jobs: z
-        .string()
-        .min(10, "Опишите опыт (мин. 10 символов)")
-        .describe("Опыт работы"),
+    job_title: z.string().min(1, "Укажите должность"),
+    grade: z.preprocess(
+        (val) => (typeof val === "string" ? val.toLowerCase() : val),
+        z.enum(["junior", "middle", "senior"], {
+            message: "Укажите грейд (junior/middle/senior)",
+        }),
+    ),
+    experience: z.string().min(1, "Укажите опыт"),
+    work_format: z.string().min(1, "Укажите формат работы"),
+    salary: z.coerce
+        .number({ message: "Должно быть числом" })
+        .min(1, "Укажите зарплату"),
+    city: z.string().min(1, "Укажите город"),
+    recent_jobs: z.string().min(1, "Укажите последние места работы"),
+    about_me: z.string().optional(),
 });
 
+// Автоматически выводим тип из схемы - это ключевое изменение!
 export type Profile = z.infer<typeof profileSchema>;

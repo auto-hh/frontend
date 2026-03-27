@@ -1,8 +1,17 @@
+import { api } from "@/shared/api";
 import type { Vacancy } from "../model/Vacancy";
-import { delay } from "@/shared/lib";
+// import { delay } from "@/shared/lib";
 
 export const fetchVacancies = async (): Promise<Vacancy[]> => {
-    await delay(2000);
+    try {
+        const res = await api.post("/llm/vacancies");
+
+        console.log(res);
+
+        debugger;
+    } catch (err) {
+        console.log(err);
+    }
 
     return [
         {
