@@ -7,4 +7,3 @@ README.md
 .env.local
 .env.*.local
 Dockerfile
-docker-compose.yml
