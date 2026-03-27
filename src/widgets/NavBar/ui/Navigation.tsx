@@ -1,7 +1,6 @@
 import s from "./Navigation.module.css";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "@/shared/config";
-import { LogOutButton } from "@/features/auth";
 
 export function Navigation() {
     return (
@@ -15,7 +14,6 @@ export function Navigation() {
             <Link to={AppRoutes.PROFILE} className={s.link}>
                 Профиль
             </Link>
-            <LogOutButton className={s.logout} />
         </div>
     );
 }

@@ -1,21 +1,25 @@
-import { useAuthStore } from "@/entities/auth";
 import { AppRoutes } from "@/shared/config";
 import type { AppRoutesType } from "@/shared/config/appRoutes";
 import { Navigate, useLocation } from "react-router-dom";
+import { useAuth } from "../model/useAuth";
 
-interface ProtectedRouteProps {
+interface PublicRouteProps {
     children: React.ReactNode;
     redirectTo?: AppRoutesType;
 }
 
-export function ProtectedRoute({
+export function PublicRoute({
     children,
-    redirectTo = AppRoutes.LOGIN,
-}: ProtectedRouteProps) {
-    const isAuth = useAuthStore((state) => state.isAuth);
+    redirectTo = AppRoutes.HOME,
+}: PublicRouteProps) {
+    const { data: isAuth, isFetching } = useAuth();
     const location = useLocation();
 
-    if (!isAuth) {
+    if (isFetching) {
+        return null;
+    }
+
+    if (isAuth) {
         return <Navigate to={redirectTo} state={{ from: location }} replace />;
     }
 
