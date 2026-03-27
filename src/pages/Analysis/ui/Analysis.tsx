@@ -1,19 +1,29 @@
 import s from "./Analysis.module.css";
-import { commonStyles } from "@/shared/styles";
-import { AnalysisItem, useAnalysis } from "@/entities/analysis";
+import { Tokens, useAnalysis } from "@/entities/analysis";
+import { SearchWithProfile } from "@/features/SearchWithProfile";
 import { Loader } from "@/shared/ui";
 
 export function Analysis() {
-    const { analysis, isPending } = useAnalysis();
+    const { analysis, isPending, getAnalysis } = useAnalysis();
+
+    const onSearch = async () => getAnalysis();
 
     return (
         <div className={s.container}>
-            <h1 className={commonStyles.title}>Analysis</h1>
             {isPending ? (
-                <Loader />
+                <div className={s.loader}>
+                    <Loader />
+                </div>
             ) : (
                 <>
-                    <AnalysisItem tokens={analysis?.tokens ?? []} />
+                    {!!analysis ? (
+                        <Tokens tokens={analysis?.tokens ?? []} />
+                    ) : (
+                        <SearchWithProfile
+                            onSearch={onSearch}
+                            text={"Анализировать резюме"}
+                        />
+                    )}
                 </>
             )}
         </div>

@@ -1,21 +1,22 @@
 import { commonStyles } from "@/shared/styles";
 import { useSearchOpportunity } from "../model/useSearchOpportunity";
-import s from "./SearchVacancies.module.css";
+import s from "./SearchWithProfile.module.css";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "@/shared/config";
 
-interface SearchVacanciesProps {
+interface SearchWithProfileProps {
     onSearch: () => Promise<void>;
+    text: string;
 }
 
-export function SearchVacancies({ onSearch }: SearchVacanciesProps) {
+export function SearchWithProfile({ onSearch, text }: SearchWithProfileProps) {
     const { data: can } = useSearchOpportunity();
 
     return (
         <div className={s.container}>
             {can ? (
                 <div className={commonStyles.button} onClick={onSearch}>
-                    Найти вакансии
+                    {text}
                 </div>
             ) : (
                 <div className={s.restrict}>
