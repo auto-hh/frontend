@@ -20,13 +20,13 @@ export const useProfileForm = () => {
         reset,
         formState: { errors },
     } = useForm<Profile>({
-        resolver: zodResolver(profileSchema),
+        resolver: zodResolver(profileSchema) as any,
         defaultValues: {
             job_title: "",
-            grade: "",
+            grade: "junior",
             experience: "",
             work_format: "",
-            salary: "",
+            salary: 0,
             city: "",
             about_me: "",
             recent_jobs: "",

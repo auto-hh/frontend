@@ -27,7 +27,7 @@ export const UpdateProfile = () => {
                     <div className={s.field}>
                         <input
                             {...register("grade")}
-                            placeholder="Грейд"
+                            placeholder="Грейд (junior/middle/senior)"
                             className={errors.grade ? s.error : ""}
                         />
                         {errors.grade && (
