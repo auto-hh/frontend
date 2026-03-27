@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import s from "./NavBar.module.css";
-import { useAuthStore } from "@/entities/auth";
 import { Navigation } from "./Navigation";
+import { useAuth } from "@/entities/auth";
 
 export function NavBar() {
-    const isAuth = useAuthStore((state) => state.isAuth);
+    const { data: isAuth } = useAuth();
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {

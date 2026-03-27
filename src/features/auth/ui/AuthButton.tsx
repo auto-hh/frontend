@@ -1,15 +1,17 @@
 import { commonStyles } from "@/shared/styles";
 import { login } from "../api/login";
-import { useAuthStore } from "@/entities/auth";
 import { MoveRight } from "lucide-react";
 import s from "./AuthButton.module.css";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function AuthButton() {
-    const { checkAuth } = useAuthStore((state) => state.actions);
+    const queryClient = useQueryClient();
 
     const onClick = async () => {
         await login();
-        checkAuth();
+        queryClient.invalidateQueries({
+            queryKey: ["auth"],
+        });
     };
 
     return (
