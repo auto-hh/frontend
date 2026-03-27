@@ -1,6 +1,8 @@
 import type { Profile } from "../model/Profile";
 
 export async function fetchProfile(): Promise<Profile> {
+    console.log("fetchProfile");
+
     return {
         job_title: "Frontend Developer",
         grade: "middle",
