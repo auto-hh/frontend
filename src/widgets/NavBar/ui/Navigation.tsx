@@ -1,7 +1,7 @@
 import s from "./Navigation.module.css";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "@/shared/config";
-import { LogOutButton } from "@/feature/auth";
+import { LogOutButton } from "@/features/auth";
 
 export function Navigation() {
     return (

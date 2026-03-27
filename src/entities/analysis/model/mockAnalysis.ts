@@ -47,7 +47,6 @@ export const mockAnalysis: Token[] = [
 ];
 
 export const mockExplorationResult: ExplorationResult = {
-    resume_id: 99999,
     tokens: mockAnalysis,
     status: "success",
 };

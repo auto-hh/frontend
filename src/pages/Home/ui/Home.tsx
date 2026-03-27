@@ -1,8 +1,8 @@
 import s from "./Home.module.css";
 import { Loader } from "@/shared/ui";
 import { useGetVacancies } from "@/entities/vacancies";
-import { SearchVacancies } from "@/feature/SearchVacancies";
-import { VacancyList } from "@/widgets/Vacancy";
+import { SearchWithProfile } from "@/features/SearchWithProfile";
+import { VacancyList } from "@/widgets/VacancyList";
 
 export function Home() {
     const { vacancies, isPending, getVacancies } = useGetVacancies();
@@ -19,7 +19,10 @@ export function Home() {
                     {!!vacancies.length ? (
                         <VacancyList vacancies={vacancies} />
                     ) : (
-                        <SearchVacancies onSearch={onSearch} />
+                        <SearchWithProfile
+                            onSearch={onSearch}
+                            text={"Найти вакансии"}
+                        />
                     )}
                 </>
             )}

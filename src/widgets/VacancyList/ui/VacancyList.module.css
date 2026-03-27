@@ -4,6 +4,8 @@
     justify-content: space-evenly;
     gap: 1rem;
     max-width: 90vw;
+    margin-bottom: 3rem;
+    align-items: flex-start;
 }
 
 .empty {

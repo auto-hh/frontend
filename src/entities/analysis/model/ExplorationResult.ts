@@ -5,7 +5,6 @@ export type Token = {
 };
 
 export interface ExplorationResult {
-    resume_id: number;
     tokens: Token[];
     status: string;
 }

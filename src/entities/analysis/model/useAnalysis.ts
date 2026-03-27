@@ -9,7 +9,7 @@ export function useAnalysis() {
         mutate,
     } = useMutation({
         mutationKey: ["analysis"],
-        mutationFn: (form) => fetchAnalysis(form),
+        mutationFn: () => fetchAnalysis(),
     });
 
     return {
