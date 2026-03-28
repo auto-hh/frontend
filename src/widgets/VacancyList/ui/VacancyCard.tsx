@@ -49,7 +49,7 @@ export function VacancyCard(vacancy: Vacancy) {
                         className={s.score}
                         style={{ backgroundColor: scoreColor }}
                     >
-                        {score}
+                        {score.toFixed(2)}
                     </div>
                 </div>
             </div>
