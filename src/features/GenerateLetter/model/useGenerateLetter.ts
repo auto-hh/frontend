@@ -7,4 +7,7 @@ export const useGenerateCoverLetter = () =>
         onSuccess: (data) => {
             console.log(data);
         },
+        onError: (err) => {
+            console.log(err);
+        },
     });
