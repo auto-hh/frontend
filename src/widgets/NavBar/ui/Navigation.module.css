@@ -1,0 +1,14 @@
+.container {
+    margin-left: auto;
+    display: flex;
+    gap: 3rem;
+    justify-items: center;
+    align-items: center;
+
+    font-size: 1.25rem;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}

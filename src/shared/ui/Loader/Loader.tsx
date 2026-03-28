@@ -1,30 +1,28 @@
-import { Connections } from "./Connections";
-import { Neurons } from "./Neurons";
-import s from "./Loader.module.css";
-import type { Position } from "./types";
-import { Defs } from "./Defs";
-import { getNeuronPositions } from "./getNeuronPositions";
+import s from "./Loader.module.scss";
 
-export function Loader() {
-    const layers = [8, 5, 4, 3];
-    const nodeRadius = 32;
-    const svgWidth = window.innerWidth * 0.75;
-    const svgHeight = window.innerHeight * 1.5;
+const cubes = Array.from({ length: 3 }, (_, h) =>
+    Array.from({ length: 3 }, (_, w) =>
+        Array.from({ length: 3 }, (_, l) => ({
+            h: h + 1,
+            w: w + 1,
+            l: l + 1,
+        })),
+    ),
+).flat(2);
 
-    const positions: Position[][] = getNeuronPositions({
-        layers,
-        svgWidth,
-        svgHeight,
-        nodeRadius,
-    });
-
+export const Loader = () => {
     return (
         <div className={s.container}>
-            <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={s.svg}>
-                <Defs />
-                <Neurons positions={positions} nodeRadius={nodeRadius} />
-                <Connections positions={positions} />
-            </svg>
+            {cubes.map(({ h, w, l }) => (
+                <div
+                    key={`h${h}w${w}l${l}`}
+                    className={`${s.cube} ${s[`h${h}`]} ${s[`w${w}`]} ${s[`l${l}`]}`}
+                >
+                    <div className={s.faceTop} />
+                    <div className={s.faceLeft} />
+                    <div className={s.faceRight} />
+                </div>
+            ))}
         </div>
     );
-}
+};

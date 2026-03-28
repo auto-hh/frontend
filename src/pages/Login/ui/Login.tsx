@@ -1,13 +1,12 @@
-import { commonStyles } from "@/shared/styles";
 import s from "./Login.module.css";
-import { AuthButton } from "@/feature/auth";
+import { AuthButton } from "@/features/auth";
 
 export function Login() {
     return (
-        <div className={s.container}>
-            <h1 className={commonStyles.title}>Login</h1>
+        <main className={s.container}>
+            <h1 className={s.title}>Поможем найти работу в 3 клика</h1>
 
             <AuthButton />
-        </div>
+        </main>
     );
 }

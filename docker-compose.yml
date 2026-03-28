@@ -1,6 +1,59 @@
 services:
-    frontend:
-        build: .
-        ports:
-            - "80:80"
-        restart: always
+  postgres:
+    image: postgres:18.3-alpine3.23
+    container_name: postgres
+    hostname: ${POSTGRES_HOST:-postgres}
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+      - POSTGRES_DB=${POSTGRES_DB:-database}
+      - PGPORT=${POSTGRES_PORT:-5432}
+    expose:
+      - ${POSTGRES_PORT:-5432}
+    volumes:
+      - ./data/postgres/:/var/lib/postgresql/
+    shm_size: 128mb
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER:-user}", "-d", "${POSTGRES_DB:-database}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    image: ghcr.io/auto-hh/backend:latest
+    container_name: backend
+    hostname: backend
+    environment:
+      - PORT=${BACKEND_PORT:-8080}
+      - POSTGRES_HOST=${POSTGRES_HOST:-postgres}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      - POSTGRES_USER=${POSTGRES_USER:-user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+      - POSTGRES_DB=${POSTGRES_DB:-database}
+    expose:
+      - ${BACKEND_PORT:-8080}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT:-8080}/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build: .
+    container_name: frontend
+    hostname: frontend
+    environment:
+      - BACKEND_HOST=${BACKEND_HOST:-backend}
+      - BACKEND_PORT=${BACKEND_PORT:-8080}
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped

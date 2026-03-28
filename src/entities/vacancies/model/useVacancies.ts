@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchVacancies } from "../api/vacancies";
 
 export function useVacancies() {
     const {
@@ -9,7 +8,7 @@ export function useVacancies() {
         refetch,
     } = useQuery({
         queryKey: ["vacancies"],
-        queryFn: fetchVacancies,
+        queryFn: () => [],
         enabled: false,
         staleTime: 5 * 60 * 1000,
     });

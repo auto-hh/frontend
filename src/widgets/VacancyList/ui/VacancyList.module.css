@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    max-width: 90vw;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+}
+
+.empty {
+    text-align: center;
+    padding: 48px 24px;
+    color: #6b7280;
+    font-size: 16px;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 1px dashed #e5e7eb;
+}

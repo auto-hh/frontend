@@ -1,25 +1,30 @@
-import { Loader } from "@/shared/ui";
 import s from "./Home.module.css";
-import { useVacancies, VacancyList } from "@/entities/vacancies";
-import { commonStyles } from "@/shared/styles";
+import { Loader } from "@/shared/ui";
+import { useGetVacancies } from "@/entities/vacancies";
+import { SearchWithProfile } from "@/features/SearchWithProfile";
+import { VacancyList } from "@/widgets/VacancyList";
 
 export function Home() {
-    const { vacancies, isLoading, getVacancies } = useVacancies();
-
-    const onClick = () => {
-        getVacancies();
-    };
+    const { vacancies, isPending, getVacancies } = useGetVacancies();
+    const onSearch = async () => getVacancies();
 
     return (
         <div className={s.container}>
-            <h1 className={commonStyles.title}>Home</h1>
-
-            {isLoading ? <Loader /> : <VacancyList vacancies={vacancies} />}
-
-            {!!vacancies.length || isLoading || (
-                <button onClick={onClick} className={commonStyles.button}>
-                    Сгенерировать
-                </button>
+            {isPending ? (
+                <div className={s.loader}>
+                    <Loader />
+                </div>
+            ) : (
+                <>
+                    {!!vacancies.length ? (
+                        <VacancyList vacancies={vacancies} />
+                    ) : (
+                        <SearchWithProfile
+                            onSearch={onSearch}
+                            text={"Найти вакансии"}
+                        />
+                    )}
+                </>
             )}
         </div>
     );
